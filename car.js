@@ -10,13 +10,12 @@ class Car{
         this.friction=0.05;
         this.angle=0;
 
-        this.controls=new this.controls();
+        this.controls = new Controls();
     }
 
     update(){
-        this.move();
+        this.#move();
     }
-
 
     #move(){
         if(this.controls.forward){
@@ -48,23 +47,25 @@ class Car{
                 if(this.controls.right){
                     this.angle-=0.03*flip;
                     }
-    }
+        }   
         this.x-=Math.sin(this.angle)*this.speed;
-        this.x-=Math.cos(this.angle)*this.speed;
+        this.y-=Math.cos(this.angle)*this.speed;
     }
 
     draw(ctx){
         ctx.save();
         ctx.translate(this.x, this.y);
         ctx.rotate(-this.angel);
+
         ctx.beginPath();
-        ctx.rech(
+        ctx.rect(
             -this.width/2, 
             -this.height/2,
-            this.height,
-            this.width
+            this.width,
+            this.height
         );
         ctx.fill();
+
         ctx.restore();
     }
 }

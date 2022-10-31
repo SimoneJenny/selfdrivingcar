@@ -34,7 +34,7 @@ class Controls{
         document.onkeyUp=(event)=>{
             switch(event.key){
                 case "ArrowLeft":
-                    this.left=fakse;
+                    this.left=false;
                     break;
                 case "ArrowRight":
                     this.right=false;
